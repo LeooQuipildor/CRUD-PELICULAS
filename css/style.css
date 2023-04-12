@@ -11,3 +11,7 @@ main{
 .card.h-100 img {
     height: 70%;
 }
+
+.listaPelis td {
+    max-width: 10px;
+}

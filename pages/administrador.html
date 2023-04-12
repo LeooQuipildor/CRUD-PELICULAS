@@ -16,7 +16,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
     />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <title>Document</title>
   </head>
   <body data-bs-theme="dark">
@@ -43,7 +43,10 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/pages/administrador.html"
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="/pages/administrador.html"
                   >Administrador</a
                 >
               </li>
@@ -78,9 +81,125 @@
       </nav>
     </header>
     <main class="container my-5">
-      <h1 class="display-4 text-center">Lista de peliculas</h1>
+      <h1 class="display-4 text-center">Administrador de Peliculas</h1>
       <hr />
-      
+      <section>
+        <span>Opciones: </span>
+        <button
+          type="button"
+          class="btn btn-outline-success"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+        <i class="bi bi-plus-circle"></i>
+        </button>
+        <!--MODAL-->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  Administrar Serie
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Codigo</label>
+                    <input type="email" class="form-control" aria-describedby="Disabled input example" placeholder="123" disabled>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Titulo*</label>
+                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Ej.Avenger-End-Game">
+                  </div>
+                  <div class="mb-3">
+                    <label>Descripcion*</label>
+                    <div class="form-floating">
+                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                      <label for="floatingTextarea2">Ej. Breve sinopsis de la pelicula</label>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Imagen*</label>
+                    <input type="text" class="form-control" aria-describedby="imgHelp" placeholder="Ej. https://www.filmaffinity.com/ar/film520586.html">
+                  </div>
+                  <div class="mb-3">
+                    <label>Genero*</label>
+                    <select class="form-select" aria-label="Default select example">
+                      <option selected>Seleccione una opcion</option>
+                      <option value="1">Accion</option>
+                      <option value="2">Aventura</option>
+                      <option value="3">Comedia</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Año</label>
+                    <input type="text" class="form-control" aria-describedby="" placeholder="Ej. 2001">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Duracion</label>
+                    <input type="text" class="form-control" aria-describedby="" placeholder="Ej. 81 min">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Pais</label>
+                    <input type="text" class="form-control" aria-describedby="" placeholder="Ej. Argentina">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Reparto</label><small class="text-muted">(Cada actor separado por una , )</small>
+                    <input type="text" class="form-control" aria-describedby="" placeholder="Ej. Brad Pitt, Johnny Deep, Elizabeth Olsen">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="pt-5 listaPelis">
+        <h2 class="display-5">Lista de Pelis</h2>
+        <hr>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Genero</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td class="text-truncate" data-toggle="tooltip" title="Super Mario Bros">Super Mario Bros</td>
+                <td class="text-truncate" data-toggle="tooltip" title="Pelicula de animacion basada en la franquicia de videojuegos Super Mario Bros, de Nintendo. Esta producida por Shigeru Miyamoto, creador de la licencia, y la producira y animara Illumination Entertain.">Pelicula de animacion basada en la franquicia de videojuegos Super Mario Bros, de Nintendo. Esta producida por Shigeru Miyamoto, creador de la licencia, y la producira y animara Illumination Entertain.</td>
+                <td class="text-truncate" data-toggle="tooltip" title="https://pics.filmaffinity.com/the_super_mario_bros_movie-521125124-mmed.jpg">https://pics.filmaffinity.com/the_super_mario_bros_movie-521125124-mmed.jpg</td>
+                <td>Aventura</td>
+                <td>
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-info me-1"><i class="bi bi-pencil-square"></i></button>
+                    <button type="button" class="btn btn-danger ms-1"><i class="bi bi-x-square"></i></button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
     </main>
     <footer class="bg-black text-light py-3 text-center">
       <p>&copy; Todos los derechos reservados</p>
