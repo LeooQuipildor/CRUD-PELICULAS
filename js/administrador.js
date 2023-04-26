@@ -2,8 +2,8 @@
 import Pelicula from "./classPelicula.js";
 import { sumarioValidaciones } from "./helpers.js";
 
-const btnEditar = document.getElementById("btnEditar");
-btnEditar.addEventListener("click", crearPeli);
+//const btnEditar = document.getElementById("btnEditar");
+//btnEditar.addEventListener("click", crearPeli);
 
 const btnAgregar = document.getElementById("btnAgregar");
 btnAgregar.addEventListener("click", mostrarModalPeli);
@@ -45,34 +45,34 @@ function cargaInicial(){
   //verificar si listaPeliculas tiene datos
   if(listaPeliculas.length > 0){
     //dibuja los datos en la tabla
-    listaPeliculas.map((pelicula)=> crearFila(pelicula))
+    listaPeliculas.map((pelicula, indice)=> crearFila(pelicula, indice))
   }
 }
 
-function crearFila(pelicula){
+function crearFila(pelicula, indice){
   //aqui dibujo el TR
   let datosTablaPelicula = document.querySelector(`tbody`);
   console.log(datosTablaPelicula);
   datosTablaPelicula.innerHTML += `<tr>
-  <th scope="row">1</th>
+  <th scope="row">${indice+1}</th>
   <td
     class="text-truncate"
     data-toggle="tooltip"
-    title="Super Mario Bros"
+    title="${pelicula.titulo}"
   >
     ${pelicula.titulo}
   </td>
   <td
     class="text-truncate"
     data-toggle="tooltip"
-    title="Pelicula de animacion basada en la franquicia de videojuegos Super Mario Bros, de Nintendo. Esta producida por Shigeru Miyamoto, creador de la licencia, y la producira y animara Illumination Entertain."
+    title="${pelicula.descripcion}"
   >
   ${pelicula.descripcion}
   </td>
   <td
     class="text-truncate"
     data-toggle="tooltip"
-    title="https://pics.filmaffinity.com/the_super_mario_bros_movie-521125124-mmed.jpg"
+    title="${pelicula.imagen}"
   >
   ${pelicula.imagen}
   </td>
