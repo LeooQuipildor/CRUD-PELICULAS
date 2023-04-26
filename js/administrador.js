@@ -160,6 +160,18 @@ function cargarPelicula(e) {
     limpiarFormularioPeliculas();
 
     modalPelicula.hide();
+
+    // dibujar la fila
+    let indicePeli = listaPeliculas.length - 1;
+    crearFila(nuevaPeli, indicePeli);
+
+    // mostrar un cartel al usuario
+
+    Swal.fire(
+      'Pelicula Creada!',
+      `La pelicula ${nuevaPeli.titulo} fue crada correctamente!`,
+      'success'
+    )
   } else {
     msjFormulario.className = `alert alert-danger mt-3`;
     msjFormulario.innerHTML = sumario;
