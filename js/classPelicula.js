@@ -19,6 +19,7 @@ export default class Pelicula {
     pais,
     reparto
   ) {
+    this.#codigo = uuidv4();
     this.#titulo = titulo;
     this.#descripcion = descripcion;
     this.#imagen = imagen;
@@ -31,83 +32,97 @@ export default class Pelicula {
   }
 
   // getters y setters
-  getCodigo() {
+  get codigo() {
     return this.#codigo;
   }
-  setCodigo(codigo) {
+  set codigo(codigo) {
     this.#codigo = codigo;
   }
 
 
-  getTitulo() {
+  get titulo() {
     return this.#titulo;
   }
-  setTitulo(titulo) {
+  set titulo(titulo) {
     this.#titulo = titulo;
   }
 
 
-  getDescripcion() {
+  get descripcion() {
     return this.#descripcion;
   }
-  setDescripcion(descripcion) {
+  set descripcion(descripcion) {
     this.#descripcion = descripcion;
   }
 
   
-  getImagen() {
+  get imagen() {
     return this.#imagen;
   }
-  setImagen(imagen) {
+  set imagen(imagen) {
     this.#imagen = imagen;
   }
 
 
-  getGenero() {
+  get genero() {
     return this.#genero;
   }
-  setGenero(genero) {
+  set genero(genero) {
     this.#genero = genero;
   }
 
 
-  getAnio() {
+  get anio() {
     return this.#anio;
   }
-  setAnio(anio) {
+  set anio(anio) {
     this.#anio = anio;
   }
 
 
-  getDuracion() {
+  get duracion() {
     return this.#duracion;
   }
-  setDuracion(duracion) {
+  set duracion(duracion) {
     this.#duracion = duracion;
   }
 
 
-  getPais() {
+  get pais() {
     return this.#pais;
   }
-  setPais(pais){
+  set pais(pais){
     this.#pais = pais;
   }
 
 
-  getReparto() {
+  get reparto() {
     return this.#reparto;
   }
-  setReparto(reparto){
+  set reparto(reparto){
     this.#reparto = reparto;
   }
 
 
-  getEstado() {
+  get estado() {
     return this.#estado;
   }
-  setEstado(estado){
+  set estado(estado){
     this.#estado = estado;
+  }
+
+  toJSON(){
+    return{
+      codigo:this.codigo,
+      titulo:this.titulo,
+      descripcion:this.descripcion,
+      imagen:this.imagen,
+      genero:this.genero,
+      duracion:this.duracion,
+      pais:this.pais,
+      reparto:this.reparto,
+      estado:this.estado
+    }
   }
   
 }

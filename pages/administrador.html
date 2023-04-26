@@ -120,6 +120,7 @@
                       class="form-control"
                       aria-describedby="Disabled input example"
                       placeholder="123"
+                      id="codigo"
                       disabled
                     />
                   </div>
@@ -134,6 +135,7 @@
                       placeholder="Ej.Avenger-End-Game"
                       minlength="2"
                       maxlength="40"
+                      id="titulo"
                       required
                     />
                   </div>
@@ -142,7 +144,7 @@
                     <div class="form-floating">
                       <textarea
                         class="form-control"
-                        id="floatingTextarea2"
+                        id="descripcion"
                         style="height: 100px"
                         minlength="2"
                         maxlength="300"
@@ -164,6 +166,7 @@
                       placeholder="Ej. https://www.filmaffinity.com/ar/film520586.html"
                       minlength="2"
                       maxlength="300"
+                      id="imagen"
                       required
                     />
                   </div>
@@ -173,11 +176,12 @@
                       class="form-select"
                       aria-label="Default select example"
                       required
+                      id="genero"
                     >
-                      <option selected>Seleccione una opcion</option>
-                      <option value="1">Accion</option>
-                      <option value="2">Aventura</option>
-                      <option value="3">Comedia</option>
+                      <option selected value="">Seleccione una opcion</option>
+                      <option value="Accion">Accion</option>
+                      <option value="Aventura">Aventura</option>
+                      <option value="Comedia">Comedia</option>
                     </select>
                   </div>
                   <div class="mb-3">
@@ -189,6 +193,7 @@
                       class="form-control"
                       aria-describedby=""
                       placeholder="Ej. 2001"
+                      id="anio"
                       minlength="2"
                       maxlength="10"
                     />
@@ -202,7 +207,8 @@
                       class="form-control"
                       aria-describedby=""
                       placeholder="Ej. 81 min"
-                      minlength="2"
+                      id="duracion"
+                      minlength="1"
                       maxlength="10"
                     />
                   </div>
@@ -215,6 +221,7 @@
                       class="form-control"
                       aria-describedby=""
                       placeholder="Ej. Argentina"
+                      id="pais"
                       minlength="2"
                       maxlength="30"
                     />
@@ -230,11 +237,14 @@
                       class="form-control"
                       aria-describedby=""
                       placeholder="Ej. Brad Pitt, Johnny Deep, Elizabeth Olsen"
+                      id="reparto"
                       minlength="2"
                       maxlength="300"
                     />
                   </div>
                   <button type="submit" class="btn btn-primary">Enviar</button>
+                  <div class="alert alert-danger mt-3 d-none" role="alert" id="msjFormulario">
+                  </div>
                 </form>
               </div>
             </div>
@@ -307,7 +317,7 @@
     <footer class="bg-black text-light py-3 text-center">
       <p>&copy; Todos los derechos reservados</p>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/administrador.js" type="module"></script>
     <script
