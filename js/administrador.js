@@ -27,6 +27,7 @@ if (!listaPeliculas) {
   listaPeliculas = JSON.parse(listaPeliculas).map(
     (pelicula) =>
       new Pelicula(
+        pelicula.codigo,
         pelicula.titulo,
         pelicula.descripcion,
         pelicula.imagen,
@@ -83,10 +84,11 @@ function crearFila(pelicula, indice){
         type="button"
         class="btn btn-info me-1"
         id="btnEditar"
+        
       >
         <i class="bi bi-pencil-square"></i>
       </button>
-      <button type="button" class="btn btn-danger ms-1">
+      <button type="button" class="btn btn-danger ms-1" onclick="borrarPelicula('${pelicula.codigo}')">
         <i class="bi bi-x-square"></i>
       </button>
     </div>
@@ -107,18 +109,6 @@ const reparto = document.getElementById("reparto");
 const msjFormulario = document.getElementById("msjFormulario");
 
 // crear una nueva peli
-function crearPeli() {
-  let nuevaPeli = new Pelicula(
-    "Super Mario",
-    "algo",
-    "url",
-    "aventura",
-    2023,
-    "2hs",
-    "EEUU",
-    "-"
-  );
-}
 
 function mostrarModalPeli() {
   modalPelicula.show();
@@ -142,6 +132,7 @@ function cargarPelicula(e) {
   if (sumario.length == 0) {
     //crear pelicula
     let nuevaPeli = new Pelicula(
+      undefined,
       titulo.value,
       descripcion.value,
       imagen.value,
@@ -152,6 +143,7 @@ function cargarPelicula(e) {
       reparto.value
     );
     listaPeliculas.push(nuevaPeli);
+    console.log(nuevaPeli)
 
     //almacenar la peli en el local storage
     guardarEnLocalStorage();
@@ -187,4 +179,10 @@ function guardarEnLocalStorage() {
 
 function limpiarFormularioPeliculas() {
   administrarPelicula.reset();
+}
+
+//function borrarPelicula(){}
+
+window.borrarPelicula = (codigo)=>{
+  console.log(`aqui borro la peli`)
 }

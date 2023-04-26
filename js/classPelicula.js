@@ -10,6 +10,7 @@ export default class Pelicula {
   #reparto;
   #estado;
   constructor(
+    codigo = uuidv4(),
     titulo,
     descripcion,
     imagen,
@@ -19,7 +20,7 @@ export default class Pelicula {
     pais,
     reparto
   ) {
-    this.#codigo = uuidv4();
+    this.#codigo = codigo;
     this.#titulo = titulo;
     this.#descripcion = descripcion;
     this.#imagen = imagen;
