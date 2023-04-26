@@ -184,5 +184,41 @@ function limpiarFormularioPeliculas() {
 //function borrarPelicula(){}
 
 window.borrarPelicula = (codigo)=>{
-  console.log(`aqui borro la peli`)
+  Swal.fire({
+    title: 'Estas seguro de borrar la pelicula?',
+    text: "No puedes revertir este proceso posteriormente!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, eliminar!',
+    cancelButtonText:'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      console.log(`aqui borro la peli`)
+      //busco en el array de peliculas la peli que quiero borrar
+      let posicionPeli = listaPeliculas.findIndex(pelicula => pelicula.codigo === codigo)
+      console.log(posicionPeli);
+      // borrar del array el objeto pelicula
+      listaPeliculas.splice(posicionPeli,1)
+      //igual los datos del localStorage
+      guardarEnLocalStorage();
+      //quitar la fila de la tabla
+      let datosTablaPelicula = document.querySelector(`tbody`);
+      datosTablaPelicula.removeChild(datosTablaPelicula.children[posicionPeli]);
+      //actualizar los indices de la lista
+
+
+      Swal.fire(
+        'Borramos la pelicula!',
+        'La pelicula seleccionada fue eliminada correctamente',
+        'success'
+      )
+    }
+  })
+
+
+
+
+
 }
