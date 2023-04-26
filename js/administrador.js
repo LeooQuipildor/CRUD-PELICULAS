@@ -39,6 +39,61 @@ if (!listaPeliculas) {
   );
 }
 
+cargaInicial();
+
+function cargaInicial(){
+  //verificar si listaPeliculas tiene datos
+  if(listaPeliculas.length > 0){
+    //dibuja los datos en la tabla
+    listaPeliculas.map((pelicula)=> crearFila(pelicula))
+  }
+}
+
+function crearFila(pelicula){
+  //aqui dibujo el TR
+  let datosTablaPelicula = document.querySelector(`tbody`);
+  console.log(datosTablaPelicula);
+  datosTablaPelicula.innerHTML += `<tr>
+  <th scope="row">1</th>
+  <td
+    class="text-truncate"
+    data-toggle="tooltip"
+    title="Super Mario Bros"
+  >
+    ${pelicula.titulo}
+  </td>
+  <td
+    class="text-truncate"
+    data-toggle="tooltip"
+    title="Pelicula de animacion basada en la franquicia de videojuegos Super Mario Bros, de Nintendo. Esta producida por Shigeru Miyamoto, creador de la licencia, y la producira y animara Illumination Entertain."
+  >
+  ${pelicula.descripcion}
+  </td>
+  <td
+    class="text-truncate"
+    data-toggle="tooltip"
+    title="https://pics.filmaffinity.com/the_super_mario_bros_movie-521125124-mmed.jpg"
+  >
+  ${pelicula.imagen}
+  </td>
+  <td>${pelicula.genero}</td>
+  <td>
+    <div class="d-flex">
+      <button
+        type="button"
+        class="btn btn-info me-1"
+        id="btnEditar"
+      >
+        <i class="bi bi-pencil-square"></i>
+      </button>
+      <button type="button" class="btn btn-danger ms-1">
+        <i class="bi bi-x-square"></i>
+      </button>
+    </div>
+  </td>
+</tr>`
+}
+
 
 const codigo = document.getElementById("codigo");
 const titulo = document.getElementById("titulo");
